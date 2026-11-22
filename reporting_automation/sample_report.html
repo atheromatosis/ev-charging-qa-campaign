@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QA Test Execution Report - v2.4.0</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; color: #1f2937; background-color: #f9fafb; }
+        .container { max-width: 960px; margin: auto; background: #ffffff; padding: 25px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
+        h1 { border-bottom: 2px solid #e5e7eb; padding-bottom: 10px; color: #111827; }
+        h2 { margin-top: 28px; color: #374151; }
+        .summary-grid { display: flex; gap: 15px; margin: 20px 0; }
+        .card { flex: 1; padding: 15px; border-radius: 6px; background: #f3f4f6; text-align: center; }
+        .card h3 { margin: 0; font-size: 13px; text-transform: uppercase; color: #6b7280; }
+        .card p { margin: 8px 0 0; font-size: 24px; font-weight: bold; }
+        table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 14px; }
+        th, td { border: 1px solid #e5e7eb; padding: 10px; text-align: left; }
+        th { background-color: #f3f4f6; }
+        .badge-fail { background: #fee2e2; color: #991b1b; padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 12px; }
+        .footer { margin-top: 30px; font-size: 12px; color: #6b7280; text-align: right; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>EVCC/OBC QA Test Execution Report (v2.4.0)</h1>
+        <p><strong>Generated:</strong> 2026-11-22 23:35:22 | <strong>Standard:</strong> ISTQB FL / ISO 29119</p>
+
+        <div class="summary-grid">
+            <div class="card"><h3>Total Executed</h3><p>20</p></div>
+            <div class="card"><h3>Passed</h3><p style="color:#16a34a;">16</p></div>
+            <div class="card"><h3>Failed</h3><p style="color:#dc2626;">4</p></div>
+            <div class="card"><h3>Pass Rate</h3><p>80.0%</p></div>
+            <div class="card"><h3>Release Gate</h3><p style="color:#dc2626;">NO-GO</p></div>
+        </div>
+
+        <h2>1. Breakdown by Test Suite</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Test Suite</th>
+                    <th>Total</th>
+                    <th>Passed</th>
+                    <th>Failed</th>
+                    <th>Blocked</th>
+                    <th>Pass Rate</th>
+                </tr>
+            </thead>
+            <tbody>
+        <tr>
+            <td><strong>TS01_StateMachine</strong></td>
+            <td>5</td>
+            <td style="color:#16a34a;">5</td>
+            <td style="color:#dc2626;">0</td>
+            <td>0</td>
+            <td><strong>100.0%</strong></td>
+        </tr>
+        
+        <tr>
+            <td><strong>TS02_CurrentNegotiation</strong></td>
+            <td>6</td>
+            <td style="color:#16a34a;">4</td>
+            <td style="color:#dc2626;">2</td>
+            <td>0</td>
+            <td><strong>66.7%</strong></td>
+        </tr>
+        
+        <tr>
+            <td><strong>TS03_ThermalProtection</strong></td>
+            <td>4</td>
+            <td style="color:#16a34a;">3</td>
+            <td style="color:#dc2626;">1</td>
+            <td>0</td>
+            <td><strong>75.0%</strong></td>
+        </tr>
+        
+        <tr>
+            <td><strong>TS04_CAN_Diagnostics</strong></td>
+            <td>5</td>
+            <td style="color:#16a34a;">4</td>
+            <td style="color:#dc2626;">1</td>
+            <td>0</td>
+            <td><strong>80.0%</strong></td>
+        </tr>
+        </tbody>
+        </table>
+
+        <h2>2. Failed Test Cases & Linked Defects</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Test ID</th>
+                    <th>Req ID</th>
+                    <th>Test Case Title</th>
+                    <th>Priority</th>
+                    <th>Defect ID</th>
+                    <th>Observed Failure</th>
+                </tr>
+            </thead>
+            <tbody>
+        <tr>
+            <td><strong>TC-008</strong></td>
+            <td>REQ-EVCC-006</td>
+            <td>Verify invalid high PWM fault handling (96.1% duty cycle)</td>
+            <td><span class="badge-fail">Critical</span></td>
+            <td><strong>BUG-001</strong></td>
+            <td>Contactors opened in 142 ms (>100 ms limit).</td>
+        </tr>
+        
+        <tr>
+            <td><strong>TC-010</strong></td>
+            <td>REQ-EVCC-007</td>
+            <td>Verify current arbitration when Cable PP rating is lowest</td>
+            <td><span class="badge-fail">High</span></td>
+            <td><strong>BUG-002</strong></td>
+            <td>OBC output = 32.0 A (PP resistor ignored).</td>
+        </tr>
+        
+        <tr>
+            <td><strong>TC-014</strong></td>
+            <td>REQ-EVCC-010</td>
+            <td>Verify connector remains locked while T_inlet > 60 C after fault</td>
+            <td><span class="badge-fail">Critical</span></td>
+            <td><strong>BUG-003</strong></td>
+            <td>Connector remained permanently locked even at 25 C until ECU reset.</td>
+        </tr>
+        
+        <tr>
+            <td><strong>TC-019</strong></td>
+            <td>REQ-EVCC-013</td>
+            <td>Verify UDS ClearDTC (0x14) rejected when Vehicle Speed > 0 km/h</td>
+            <td><span class="badge-fail">High</span></td>
+            <td><strong>BUG-004</strong></td>
+            <td>ECU returned positive response 0x54 and cleared DTCs while moving!</td>
+        </tr>
+        </tbody>
+        </table>
+
+        <div class="footer">Automated QA Reporting Pipeline &bull; EVCC/OBC Validation Team</div>
+    </div>
+</body>
+</html>
