@@ -58,3 +58,9 @@ stateDiagram-v2
 * **Pass Rate:** 80.0% (16 Passed, 4 Failed, 0 Blocked)
 * **Critical Open Defects:** 1 (`BUG-003`: Connector unlock failure on emergency thermal shutdown)
 * **Final Release Decision:** **NO-GO** (Pending hotfix `v2.4.2` and regression cycle)
+
+---
+
+## Automated HTML Report Preview
+
+![Automated QA HTML Report](./assets/report_preview.png)
