@@ -1,0 +1,21 @@
+# Requirements Traceability Matrix (RTM) – Release v2.4.0
+
+**Traceability Coverage:** 14 / 14 System Requirements Mapped (`100%`)
+**Execution Status:** 16 Passed | 4 Failed
+
+| Requirement ID | Requirement Summary | Risk ID | Mapped Test Case(s) | Execution Status | Linked Defect(s) |
+| :--- | :--- | :---: | :--- | :---: | :---: |
+| **REQ-EVCC-001** | CP 12V $\rightarrow$ 9V transition within `200 ms` | — | `TC-001` | **PASS** | — |
+| **REQ-EVCC-002** | Engage connector lock before charging | `RSK-01` | `TC-002` | **PASS** | — |
+| **REQ-EVCC-003** | Lock timeout (`1500 ms`) $\rightarrow$ Error + DTC `0x910412` | `RSK-01` | `TC-003` | **PASS** | — |
+| **REQ-EVCC-004** | Transition to `Charging` on CP 6V + valid PWM | `RSK-01` | `TC-004` | **PASS** | — |
+| **REQ-EVCC-005** | PWM duty cycle formula $I_{max} = D \times 0.6\text{ A}$ | `RSK-03` | `TC-005`, `TC-006` | **PASS** | — |
+| **REQ-EVCC-006** | Invalid PWM ($<8\%$ or $>96\%$) cut-off $\le 100\text{ ms}$ | `RSK-01` | `TC-007`, `TC-008` | **FAIL** | `BUG-001` |
+| **REQ-EVCC-007** | Current arbitration (min of EVSE, PP cable, BMS) | `RSK-03` | `TC-009`, `TC-010` | **FAIL** | `BUG-002` |
+| **REQ-EVCC-008** | Thermal derating by `50%` at $T_{inlet} = 75^\circ\text{C}$ | `RSK-02` | `TC-011`, `TC-012` | **PASS** | — |
+| **REQ-EVCC-009** | Over-temp shutdown $> 85^\circ\text{C}$ + DTC `0x910855` | `RSK-02` | `TC-013` | **PASS** | — |
+| **REQ-EVCC-010** | Connector lock retention until safe cool-down | `RSK-01` | `TC-014` | **FAIL** | `BUG-003` |
+| **REQ-EVCC-011** | BMS CAN frame `0x185` timeout ($>500\text{ ms}$) shutdown | `RSK-04` | `TC-015`, `TC-016` | **PASS** | — |
+| **REQ-EVCC-012** | UDS `0x19` & `0x14` support in Default/Extended session | — | `TC-017` | **PASS** | — |
+| **REQ-EVCC-013** | Reject UDS `0x14` (NRC `0x22`) while charging/moving | `RSK-05` | `TC-018`, `TC-019` | **FAIL** | `BUG-004` |
+| **REQ-EVCC-014** | Safe unlock sequence on key fob request | `RSK-01` | `TC-020` | **PASS** | — |
